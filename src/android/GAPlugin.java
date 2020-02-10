@@ -73,7 +73,11 @@ public class GAPlugin extends AnnotatedCordovaPlugin {
           Iterator<String> keys = params.keys();
           while(keys.hasNext()) {
             String key = keys.next();
-            bundle.putString(key, params.getString(key));
+            if (key.toLowerCase() == "value") {
+                bundle.putDouble(key, Double.valueOf(params.getString(key)));
+            } else {
+                bundle.putString(key, params.getString(key));
+            }
           }
         }
         mFirebaseAnalytics.logEvent(options.optString(OPT_EVENT_NAME), bundle);
