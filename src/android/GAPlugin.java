@@ -73,8 +73,10 @@ public class GAPlugin extends AnnotatedCordovaPlugin {
           Iterator<String> keys = params.keys();
           while(keys.hasNext()) {
             String key = keys.next();
-            if (key.toLowerCase() == "value") {
+            if (key.equalsIgnoreCase("value") || key.equalsIgnoreCase("price") || key.equalsIgnoreCase("tax")) {
                 bundle.putDouble(key, Double.valueOf(params.getString(key)));
+            } else if (key.equalsIgnoreCase("quantity")) {
+                bundle.putLong(key, Long.valueOf(params.getString(key)));
             } else {
                 bundle.putString(key, params.getString(key));
             }
