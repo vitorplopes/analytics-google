@@ -14,13 +14,13 @@
   <keywords>analytics,google,metrics,event,screen,ecommerce,ua,universal analytics,universal,referral,download,install,track,tracking</keywords>
   <repo>https://github.com/appfeel/analytics-google.git</repo>
   <issue>https://github.com/appfeel/analytics-google/issues</issue>
-  
+
   <hook type="after_prepare" src="hooks/after_prepare/999-admobPluginNotice.js" />
-  
+
   <js-module src="www/analytics.js" name="GAPlugin">
     <merges target="analytics" />
   </js-module>
-  
+
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="GAPlugin">
@@ -39,10 +39,10 @@
         </intent-filter>
       </receiver>
     </config-file>
-    <framework src="com.google.firebase:firebase-analytics:15.0.0"/>
+    <framework src="com.google.firebase:firebase-analytics:17.0.0"/>
     <source-file src="src/android/GAPlugin.java" target-dir="src/com/appfeel/cordova/analytics" />
   </platform>
-  
+
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
       <feature name="GAPlugin">
